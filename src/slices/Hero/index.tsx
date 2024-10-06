@@ -4,12 +4,14 @@ import { useGSAP } from "@gsap/react";
 import { asText, Content } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import { View } from "@react-three/drei";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import TextSplitter from "@/components/ui/TextSplitter";
+import Scene from "./Scene";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -76,6 +78,9 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       data-slice-variation={slice.variation}
       className="hero opacity-0"
     >
+      <View className="hero-scene pointer-events-none sticky top-0 z-50 -mt-[100vh] hidden h-screen w-screen md:block">
+        <Scene />
+      </View>
       <div className="grid">
         <div className="grid h-screen place-items-center">
           <div className="grid auto-rows-min place-items-center text-center">
